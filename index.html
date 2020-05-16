@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Circles</title>
+</head>
+<body>
+    <canvas>
+        Your browser does not support html5 canvas
+    </canvas>
+    <style>
+        canvas{
+            position: absolute;
+            
+            background: radial-gradient( rgba(0, 0, 0, 0.815),rgb(0, 0, 0));
+            margin: auto;
+            top: 0; bottom: 0; right: 0; left: 0;
+        }
+    </style>
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        canvas.onmousemove = (e)=>{
+            ctx.arc(e.clientX,e.clientY,e.clientY/4,Math.PI*2,0);
+            ctx.stroke();
+            ctx.lineWidth = '2';
+            ctx.fill();
+            console.log(e.clientY)
+            ctx.fillStyle = `rgb(${e.clientY},0,170)`
+            ctx.beginPath();
+        }
+
+    </script>
+    
+</body>
+</html>
